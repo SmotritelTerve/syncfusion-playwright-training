@@ -3,6 +3,9 @@ import {Page, Locator} from "@playwright/test"
 export class NewDoctorModal{
     readonly page: Page
     readonly doctorNameInput: Locator
+    readonly dialogHeader: Locator
+    readonly maleBtn: Locator
+    readonly femaleBtn: Locator
     readonly doctorMobileInput: Locator
     readonly emailInput: Locator
     readonly educationInput: Locator
@@ -15,11 +18,14 @@ export class NewDoctorModal{
 
     constructor(page: Page){
         this.page = page
+        this.dialogHeader = page.locator('.e-dlg-header')
         this.doctorNameInput = page.locator('#Name input')
+        this.maleBtn = page.locator('input#patientCheckMale')
+        this.femaleBtn = page.locator('input#patientCheckFemale')
         this.doctorMobileInput = page.locator('input#DoctorMobile')
-        this.emailInput = page.locator('input[name="Email')
+        this.emailInput = page.locator('input[name="Email"]')
         this.educationInput = page.locator('input[name="Education"]')
-        this.designationInput = page.locator('input[name="Designation')
+        this.designationInput = page.locator('input[name="Designation"]')
         this.experienceCombobox = page.locator('#Experience').getByRole('combobox')
         this.dutyTimingCombobox = page.locator('#DutyTiming').getByRole('combobox')
         // this.cancelBtn = page.locator('.button-container button.e-btn:not(.e-primary)')
